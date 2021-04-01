@@ -25,5 +25,14 @@ public class Supervisor extends Employee {
             System.out.println(s.Presentation());
         }
     }
-    
+
+    public void setEmployeeSalary(Employee employee, float salary){
+
+        if (this.getId()==employee.getMi_supervisor().getId()) {
+            employee.salary = salary;
+        }else{
+            System.out.println("WARNING: eL SUPERVISO NO TIENE EL ACESSO PARA CAMBIAR EL SALARIO");
+        }
+
+    }
 }

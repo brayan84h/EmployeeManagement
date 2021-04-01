@@ -2,10 +2,9 @@ package Employee;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class Collaborator extends Employee {
 
-    private List<String> programing_languages;
+    private final List<String> programing_languages;
     public Collaborator(String id, String name, String lastname, int age, String mail) {
         super(id, name, lastname, age, mail);
         programing_languages= new ArrayList<String>();
@@ -22,5 +21,13 @@ public class Collaborator extends Employee {
         for (String languages:this.programing_languages) {
             System.out.println("  -"+languages);
         }
+    }
+
+    public String getSalaryInfo(){
+        String respuesta= "Salario Malo";
+        if (super.salary >= 2000) {
+            respuesta = "Salario Bueno";
+        }
+        return respuesta;
     }
 }

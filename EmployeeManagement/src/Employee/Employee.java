@@ -11,12 +11,25 @@ public class Employee {
     private int age;
     private String email;
 
+    private Supervisor mi_supervisor;
+
+    protected float salary;
+
     public Employee(String id, String name, String lastname, int age, String email) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.setAge(age);
         this.setEmail(email);
+        this.salary = 0 ;
+    }
+
+    public Supervisor getMi_supervisor() {
+        return this.mi_supervisor;
+    }
+
+    public void setMi_supervisor(Supervisor mi_supervisor) {
+        this.mi_supervisor = mi_supervisor;
     }
 
     public String getId() {
