@@ -1,6 +1,10 @@
 package App;
 
+import Business.Engineer;
+import Business.Marketing;
 import Employee.*;
+import Utils.Information;
+import Utils.SalaryCalculationInfo;
 
 public class App {
     public static void main(String[] args) {
@@ -30,5 +34,32 @@ public class App {
 
         supervisor2.setEmployeeSalary(collaborator1, 8900);
         System.out.println("\n"+collaborator1.getSalaryInfo());
+
+        Engineer engineer = new Engineer("Ingenieria de Procesos",supervisor1);
+        Marketing marketing = new Marketing("Mercado Cuantitativo", supervisor2);
+
+        engineer.MainActivities();
+        marketing.MainActivities();
+
+        supervisor1.setBusinessUnit(engineer);
+        supervisor2.setBusinessUnit(marketing);
+
+        System.out.println(supervisor1.getBusinessUnit().getSupervisor().Presentation());
+        supervisor1.getBusinessUnit().MainActivities();
+
+        System.out.println("Information por metodos de Static: ");
+        Information.MainHolidays();
+        System.out.println("PERCENTAGE OF IMPUESTOS: ");
+        System.out.println(Information.SALARY_SUPERVISION_TAX_PERCENTAGE);
+        System.out.println(Information.SALARY_COLLABORATOR_TAX_PERCENTAGE);
+
+        //Llamado de los metodps STATIC de la clase SalaryCalculationInfo
+        System.out.println("\n-----Clase SalaryCalculationInfo----- ");
+        SalaryCalculationInfo.information_of_price_day();
+
+        SalaryCalculationInfo.calculate_Salary_of_COLLABORATOR(30);
+        SalaryCalculationInfo.calculate_Salary_of_SUPERVISOR(29);
+
+        }
     }
-}
+

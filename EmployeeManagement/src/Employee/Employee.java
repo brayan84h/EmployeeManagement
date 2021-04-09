@@ -1,5 +1,7 @@
 package Employee;
 
+import Business.BusinessUnit;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,8 +12,8 @@ public class Employee {
     private String lastname;
     private int age;
     private String email;
-
     private Supervisor mi_supervisor;
+    private BusinessUnit businessUnit;
 
     protected float salary;
 
@@ -85,6 +87,14 @@ public class Employee {
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
         Matcher matcher = pattern.matcher(email);
         return matcher.find();// .find() nos regresa un valor Boolean
+    }
+
+    public BusinessUnit getBusinessUnit() {
+        return businessUnit;
+    }
+
+    public void setBusinessUnit(BusinessUnit businessUnit) {
+        this.businessUnit = businessUnit;
     }
 
     public String Presentation(){
